@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RotasCSharp", "RotasCSharp\RotasCSharp.csproj", "{701E9A51-CF15-481C-A06E-7DA3DE3D4630}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{701E9A51-CF15-481C-A06E-7DA3DE3D4630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{701E9A51-CF15-481C-A06E-7DA3DE3D4630}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{701E9A51-CF15-481C-A06E-7DA3DE3D4630}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{701E9A51-CF15-481C-A06E-7DA3DE3D4630}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {41D41927-63F2-4086-B519-EC91986D69F7}
+	EndGlobalSection
+EndGlobal
