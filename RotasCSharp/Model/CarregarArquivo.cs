@@ -4,14 +4,23 @@ using System.IO;
 
 namespace RotasCSharp.Model
 {
-    class LoadFile
+    /// <summary>
+    /// Classe que carrega o arquivo
+    /// </summary>
+    class CarregarArquivo
     {
         private StreamReader sr;
 
-        public LoadFile()
+        public CarregarArquivo()
         {
         }
 
+        /// <summary>
+        /// Carrega a configuração das estações e dos nós a partir do arquivo
+        /// </summary>
+        /// <returns>
+        /// Dicionário com as estações
+        /// </returns>
         public Dictionary<string, Estacao> LoadProperties()
         {
             Dictionary<string, Estacao> estacoes = new Dictionary<string, Estacao>();
@@ -29,15 +38,17 @@ namespace RotasCSharp.Model
 
                 while (!(line = sr.ReadLine()).Equals("$session-config-stop$"))
                 {
-                    string[] pontos = line.Split("-");
-                    if (!estacoes[pontos[0]].destinos.ContainsKey(pontos[1]))
+                    if (line.StartsWith("#"))
                     {
-                        estacoes[pontos[0]].destinos.Add(pontos[1], new Destino(estacoes[pontos[1]], int.Parse(pontos[2])));
-                    }      
+                        continue;
+                    }
+
+                    string[] pontos = line.Split("-");
+                    estacoes[pontos[0]].estAdj.Add(estacoes[pontos[1]], int.Parse(pontos[2]));      
                  }
                 
             }
-            catch (System.IO.FileNotFoundException e)
+            catch (FileNotFoundException e)
             {
                 throw e;
             }
@@ -53,6 +64,12 @@ namespace RotasCSharp.Model
             return estacoes;
         }
 
+        /// <summary>
+        /// Carrega as perguntas do arquivo, cada uma possui um código para diferenciar
+        /// </summary>
+        /// <returns>
+        /// String com as respostas
+        /// </returns>
         public List<string> loadQuestions()
         {
             List<string> questions = new List<string>();
@@ -64,7 +81,7 @@ namespace RotasCSharp.Model
 
                 while (!(line = sr.ReadLine()).Equals("$session-questions-stop$"))
                 {
-                    if (line.Contains("#"))
+                    if (line.StartsWith("#"))
                     {
                         continue;
                     }
